@@ -1,6 +1,7 @@
 const initialState = {
     timeline: [],
-    text: ""
+    text: "",
+    human: {name: "", age: 0, nickname: ""}
 };
 
 // actionの内容によりstateの中身を更新する
@@ -21,6 +22,17 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 text:action.text
             };
+
+        case 'HUMAN':
+            console.log(action);
+            return {
+                ...state,
+                human: action.human
+            };
+
+        case 'HUMAN_ERROR':
+            console.log(action);
+            return state;
 
         default:
             return state;
